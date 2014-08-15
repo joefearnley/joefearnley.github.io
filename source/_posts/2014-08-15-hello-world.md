@@ -6,15 +6,13 @@ comments: true
 categories: 
 ---
 
-## Hello World
-
 This is a test post.
+
+<!-- More -->
 
 ~~~
 public function helloWord() {
 	return "Hello World";
 }
 ~~~
-{:lang="php"}
-
 
