@@ -3,12 +3,6 @@
   
   
   <url>
-    <loc>http://joefearnley.github.io/blog/2014/08/16/test/</loc>
-    <lastmod>2014-08-16T14:33:10-04:00</lastmod>
-    <priority>0.8</priority>
-  </url>
-  
-  <url>
     <loc>http://joefearnley.github.io/blog/2014/08/15/lets-go/</loc>
     <lastmod>2014-08-15T22:10:56-04:00</lastmod>
     <priority>0.8</priority>
@@ -17,28 +11,28 @@
   
   <url>
     <loc>http://joefearnley.github.io/blog/archives/</loc>
-    <lastmod>2014-08-16T14:37:49-04:00</lastmod>
+    <lastmod>2014-08-16T14:41:26-04:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   
   <url>
     <loc>http://joefearnley.github.io/archives/</loc>
-    <lastmod>2014-08-16T14:37:49-04:00</lastmod>
+    <lastmod>2014-08-16T14:41:26-04:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   
   <url>
     <loc>http://joefearnley.github.io/blog/</loc>
-    <lastmod>2014-08-16T14:37:49-04:00</lastmod>
+    <lastmod>2014-08-16T14:41:26-04:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   
   <url>
     <loc>http://joefearnley.github.io/</loc>
-    <lastmod>2014-08-16T14:37:49-04:00</lastmod>
+    <lastmod>2014-08-16T14:41:26-04:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
