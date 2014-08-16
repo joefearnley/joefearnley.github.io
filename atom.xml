@@ -4,14 +4,31 @@
   <title><![CDATA[Joe's Internet Homepage]]></title>
   <link href="http://joefearnley.github.io/atom.xml" rel="self"/>
   <link href="http://joefearnley.github.io/"/>
-  <updated>2014-08-16T11:16:21-04:00</updated>
+  <updated>2014-08-16T14:37:49-04:00</updated>
   <id>http://joefearnley.github.io/</id>
   <author>
-    <name><![CDATA[Joe]]></name>
+    <name><![CDATA[Joe Fearnley]]></name>
     
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[test]]></title>
+    <link href="http://joefearnley.github.io/blog/2014/08/16/test/"/>
+    <updated>2014-08-16T14:33:10-04:00</updated>
+    <id>http://joefearnley.github.io/blog/2014/08/16/test</id>
+    <content type="html"><![CDATA[<p>this is a test</p>
+
+<div><div class="CodeRay">
+  <div class="code"><pre><span class="keyword">function</span> <span class="function">getVar</span>() {
+    <span class="keyword">return</span> <span class="string"><span class="delimiter">&quot;</span><span class="content">test</span><span class="delimiter">&quot;</span></span>;
+}
+</pre></div>
+</div>
+</div>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Let's Go]]></title>
