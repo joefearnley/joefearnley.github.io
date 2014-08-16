@@ -3,5 +3,13 @@ layout: post
 title: "Let's Go"
 date: 2014-08-15 22:10:56 -0400
 comments: true
-categories: 
+categories:
 ---
+
+I’ve had some extra time on my hands at the moment so I decided to reboot my internet homepage with a new blog. The plan is to write some technical stuff. Maybe some funny stuff. My hope is that it’s informative to someone.
+
+It’s funny, I’m setting this blog up (using Octopress) at WordCamp Grand Rapids. Octopress claims to be a blogging platform for hackers. I think I’m a hacker.
+
+Am I a hacker? What defines a hacker?
+
+<a href="https://www.youtube.com/watch?v=PNtQm32tRpE" target="_blank">Lets try and find out.</a>
