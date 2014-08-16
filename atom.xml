@@ -4,7 +4,7 @@
   <title><![CDATA[My Octopress Blog]]></title>
   <link href="http://joefearnley.github.io/atom.xml" rel="self"/>
   <link href="http://joefearnley.github.io/"/>
-  <updated>2014-08-15T22:14:00-04:00</updated>
+  <updated>2014-08-15T22:15:55-04:00</updated>
   <id>http://joefearnley.github.io/</id>
   <author>
     <name><![CDATA[Your Name]]></name>
@@ -18,7 +18,13 @@
     <link href="http://joefearnley.github.io/blog/2014/08/15/lets-go/"/>
     <updated>2014-08-15T22:10:56-04:00</updated>
     <id>http://joefearnley.github.io/blog/2014/08/15/lets-go</id>
-    <content type="html"><![CDATA[
+    <content type="html"><![CDATA[<p>I’ve had some extra time on my hands at the moment so I decided to reboot my internet homepage with a new blog. The plan is to write some technical stuff. Maybe some funny stuff. My hope is that it’s informative to someone.</p>
+
+<p>It’s funny, I’m setting this blog up (using Octopress) at WordCamp Grand Rapids. Octopress claims to be a blogging platform for hackers. I think I’m a hacker.</p>
+
+<p>Am I a hacker? What defines a hacker?</p>
+
+<p>Lets try and find out.</p>
 ]]></content>
   </entry>
   
