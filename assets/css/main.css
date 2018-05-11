@@ -40,6 +40,10 @@ a:hover {
   border-color: transparent;
 }
 
+ul {
+  padding: 0;
+}
+
 .icon {
   text-decoration: none;
   position: relative;
@@ -349,6 +353,13 @@ a:hover {
   -webkit-animation-delay: 2s;
   -ms-animation-delay: 2s;
   animation-delay: 2s;
+}
+
+#header nav li:nth-child(5) {
+  -moz-animation-delay: 2.25s;
+  -webkit-animation-delay: 2.25s;
+  -ms-animation-delay: 2.25s;
+  animation-delay: 2.25s;
 }
 
 #header nav a {
