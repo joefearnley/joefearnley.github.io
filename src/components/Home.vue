@@ -4,7 +4,7 @@
     <header id="header">
         <h1>Joe Fearnley</h1>
         <p>Developer &nbsp;&bull;&nbsp; Pizza Eater &nbsp;&bull;&nbsp; Some Music</p>
-          <nav>
+        <nav>
           <ul>
             <li><a href="https://github.com/joefearnley" class="icon fa-github"><span class="label">Github</span></a></li>
             <li><a href="https://twitter.com/joefearnley" class="icon fa-twitter"><span class="label">Twitter</span></a></li>

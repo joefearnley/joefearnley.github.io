@@ -10,6 +10,7 @@
     "build": "node build/build.js"
   },
   "dependencies": {
+    "bulma": "^0.7.1",
     "buttercms": "^1.1.1",
     "font-awesome": "^4.7.0",
     "vue": "^2.5.2",
