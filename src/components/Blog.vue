@@ -56,3 +56,9 @@ export default {
   }
 }
 </script>
+
+<style>
+.post-list .post {
+  margin-bottom: 50px;
+}
+</style>

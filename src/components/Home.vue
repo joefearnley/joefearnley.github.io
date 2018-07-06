@@ -39,9 +39,9 @@
       <footer class="modal-card-foot">
         <button class="button is-success">
           <span class="icon is-small">
-            <i class="fas fa-envelope"></i>
+            <i class="fa fa-envelope"></i>
           </span>
-          Send
+         <span>Send</span>
         </button>
         <button @click="hideEmailForm" class="button">Cancel</button>
       </footer>
@@ -68,3 +68,9 @@ export default {
   }
 }
 </script>
+
+<style>
+a {
+  color: #4a4a4a;
+}
+</style>
