@@ -6,11 +6,31 @@
         <p>Developer &nbsp;&bull;&nbsp; Pizza Eater &nbsp;&bull;&nbsp; Some Music</p>
         <nav>
           <ul>
-            <li><a href="https://github.com/joefearnley" class="icon fa-github"><span class="label">Github</span></a></li>
-            <li><a href="https://twitter.com/joefearnley" class="icon fa-twitter"><span class="label">Twitter</span></a></li>
-            <li><a href="https://instagram.com/joefearnley" class="icon fa-instagram"><span class="label">Instagram</span></a></li>
-            <li><a href="https://www.linkedin.com/in/joefearnley" class="icon fa-linkedin"><span class="label">LinkedIn</span></a></li>
-            <li><a @click="showEmailForm()" href="#" class="icon fa-envelope"><span class="label">Email</span></a></li>
+            <li>
+              <a href="https://github.com/joefearnley" class="icon fa-github">
+                <span class="label">Github</span>
+              </a>
+            </li>
+            <li>
+              <a href="https://twitter.com/joefearnley" class="icon fa-twitter">
+                <span class="label">Twitter</span>
+              </a>
+            </li>
+            <li>
+              <a href="https://instagram.com/joefearnley" class="icon fa-instagram">
+                <span class="label">Instagram</span>
+              </a>
+            </li>
+            <li>
+              <a href="https://www.linkedin.com/in/joefearnley" class="icon fa-linkedin">
+                <span class="label">LinkedIn</span>
+              </a>
+            </li>
+            <li>
+              <a @click="showEmailForm" href="#" class="icon fa-envelope">
+                <span class="label">Email</span>
+              </a>
+            </li>
           </ul>
         </nav>
     </header>
@@ -93,14 +113,30 @@ export default {
       if (!this.validateForm()) {
         return false;
       }
+
+      this.axios.post('http://localhost:5000', {
+        name: this.name,
+        from: this.email,
+        subject: this.subject,
+        body: this.body
+      }).then(response => {
+        console.log(response);
+      }).catch(err => {
+        console.log(err);
+      });
     },
     validateForm: function() {
+      let isValid = true;
+
       Object.keys(this.fields).forEach(key => {
         this[key + 'Invalid'] = false;
         if (this.fields[key] === '') {
           this[key + 'Invalid'] = true;
+          isValid = false;
         }
       });
+
+      return isValid;
     },
     validateField: function(key) {
       if (this.fields[key] !== '') {
