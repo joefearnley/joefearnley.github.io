@@ -114,6 +114,13 @@ export default {
         return false;
       }
 
+      console.log({
+        name: this.fields.name,
+        from: this.fields.email,
+        subject: this.fields.subject,
+        body: this.fields.body
+      });
+
       this.axios.post('http://localhost:5000', {
         name: this.name,
         from: this.email,
