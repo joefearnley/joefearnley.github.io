@@ -114,23 +114,19 @@ export default {
         return false;
       }
 
-      console.log({
+      let postData = {
         name: this.fields.name,
         from: this.fields.email,
         subject: this.fields.subject,
         body: this.fields.body
-      });
+      };
 
-      this.axios.post('http://localhost:5000', {
-        name: this.name,
-        from: this.email,
-        subject: this.subject,
-        body: this.body
-      }).then(response => {
-        console.log(response);
-      }).catch(err => {
-        console.log(err);
-      });
+      this.axios.post('http://localhost:5000', postData, headers)
+        .then(response => {
+          console.log(response);
+        }).catch(err => {
+          console.log(err);
+        });
     },
     validateForm: function() {
       let isValid = true;
