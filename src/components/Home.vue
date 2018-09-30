@@ -67,6 +67,7 @@
               <textarea class="textarea" v-bind:class="{ 'is-danger': bodyInvalid }" @change="validateField('body')" name="body" v-model="fields.body" placeholder="Hi Joe, ..."></textarea>
             </div>
             <p v-show="bodyInvalid" class="help is-danger">Body is required</p>
+            <p v-show="serverInvalid" class="help is-danger">{{ serverInvalidMessage }}</p>
           </div>
         </form>
       </section>
@@ -81,6 +82,16 @@
       </footer>
     </div>
   </div>
+  <div class="modal" v-bind:class="{ 'is-active': showEmailConfirmation }">
+    <div class="modal-background"></div>
+    <div class="modal-card">
+      <section class="content modal-card-body">
+        <h2 style="text-align: center;">Message sent. Thank you!</h2>
+      </section>
+      </footer>
+    </div>
+  </div>
+</div>
 </div>
 </template>
 
@@ -99,7 +110,10 @@ export default {
       nameInvalid: false,
       emailInvalid: false,
       subjectInvalid: false,
-      bodyInvalid: false
+      bodyInvalid: false,
+      serverInvalid: false,
+      serverInvalidMessage: '',
+      showEmailConfirmation: false
     }
   },
   methods: {
@@ -108,24 +122,36 @@ export default {
     },
     hideEmailForm: function() {
       this.showEmailFormModal = false;
+      Object.keys(this.fields).forEach(key => {
+        this[key + 'Invalid'] = false;
+        this.fields[key] = '';
+      });
     },
     sendEmail: function() {
       if (!this.validateForm()) {
         return false;
       }
 
+      this.serverInvalid = false,
+      this.serverInvalidMessage = '';
+
       let postData = {
         name: this.fields.name,
         from: this.fields.email,
         subject: this.fields.subject,
-        body: this.fields.body
+        messageBody: this.fields.body
       };
 
-      this.axios.post('http://localhost:5000', postData, headers)
+      this.axios.post('http://localhost:5000', postData)
         .then(response => {
-          console.log(response);
+          this.showEmailFormModal = false;
+          this.showEmailConfirmation = true;
+          setTimeout(() => {
+                this.showEmailConfirmation = false;
+            }, 3000);
         }).catch(err => {
-          console.log(err);
+          this.serverInvalidMessage = err.response.data;
+          this.serverInvalid = true;
         });
     },
     validateForm: function() {
@@ -145,6 +171,9 @@ export default {
       if (this.fields[key] !== '') {
         this[key + 'Invalid'] = false;
       }
+    },
+    hideConfirmation: function() {
+      this.showConfirmation = false;
     }
   }
 }
