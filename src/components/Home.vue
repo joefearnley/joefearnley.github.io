@@ -142,7 +142,7 @@ export default {
         messageBody: this.fields.body
       };
 
-      this.axios.post('http://localhost:5000', postData)
+      this.axios.post('https://pleasesend-fmrquakhtr.now.sh', postData)
         .then(response => {
           this.showEmailFormModal = false;
           this.showEmailConfirmation = true;
