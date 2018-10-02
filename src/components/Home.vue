@@ -113,7 +113,8 @@ export default {
       bodyInvalid: false,
       serverInvalid: false,
       serverInvalidMessage: '',
-      showEmailConfirmation: false
+      showEmailConfirmation: false,
+      isLoading: false
     }
   },
   methods: {
@@ -142,17 +143,25 @@ export default {
         messageBody: this.fields.body
       };
 
-      this.axios.post('https://pleasesend-fmrquakhtr.now.sh', postData)
-        .then(response => {
-          this.showEmailFormModal = false;
-          this.showEmailConfirmation = true;
-          setTimeout(() => {
-                this.showEmailConfirmation = false;
-            }, 3000);
-        }).catch(err => {
-          this.serverInvalidMessage = err.response.data;
-          this.serverInvalid = true;
-        });
+      this.showEmailFormModal = false;
+        this.$modal.open(
+          `<p class="">
+            Message sent. Thank you!
+          </p>`
+        );
+
+      // this.axios.post('https://pleasesend-fmrquakhtr.now.sh', postData)
+      //   .then(response => {
+      //     this.showEmailFormModal = false;
+      //     // this.showEmailConfirmation = true;
+      //     // setTimeout(() => {
+      //     //       this.showEmailConfirmation = false;
+      //     //   }, 3000);
+
+      //   }).catch(err => {
+      //     this.serverInvalidMessage = err.response.data;
+      //     this.serverInvalid = true;
+      //   });
     },
     validateForm: function() {
       let isValid = true;

@@ -5,12 +5,15 @@ import App from './App'
 import router from './router'
 import axios from 'axios'
 import VueAxios from 'vue-axios'
+import Buefy from 'buefy'
+import 'buefy/dist/buefy.css'
  
  import './assets/sass/app.sass';
 
 Vue.config.productionTip = false
 
 Vue.use(VueAxios, axios);
+Vue.use(Buefy);
 
 /* eslint-disable no-new */
 new Vue({

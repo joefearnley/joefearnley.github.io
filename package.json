@@ -11,6 +11,7 @@
   },
   "dependencies": {
     "axios": "^0.18.0",
+    "buefy": "^0.6.7",
     "bulma": "^0.7.1",
     "buttercms": "^1.1.1",
     "font-awesome": "^4.7.0",
