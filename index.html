@@ -6,11 +6,12 @@
 -->
 <html>
 <head>
-<title>Joe Fearnley</title>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<link rel="shortcut icon" href="favicon.ico" />
-<link rel="stylesheet" href="assets/css/main.css" />
+  <title>Joe Fearnley</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="shortcut icon" href="favicon.ico" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.2/css/bulma.min.css" />
+  <link rel="stylesheet" href="assets/css/main.css" />
 </head>
 <body>
 <div id="wrapper">
@@ -24,7 +25,7 @@
         <li><a href="https://twitter.com/joefearnley" class="icon fa-twitter"><span class="label">Twitter</span></a></li>
         <li><a href="https://instagram.com/joefearnley" class="icon fa-instagram"><span class="label">Instagram</span></a></li>
         <li><a href="https://www.linkedin.com/in/joefearnley" class="icon fa-linkedin"><span class="label">LinkedIn</span></a></li>
-        <li><a href="mailto:joe.fearnley@gmail.com" class="icon fa-envelope"><span class="label">Email</span></a></li>
+        <li><a href="#" class="icon fa-envelope"><span class="label">Email</span></a></li>
       </ul>
     </nav>
     </header>
@@ -33,5 +34,105 @@
     </footer>
   </div>
 </div>
+
+<div class="modal modal-email">
+    <div class="modal-background"></div>
+    <div class="modal-card">
+      <header class="modal-card-head">
+        <p class="modal-card-title">Email Joe</p>
+        <button class="delete close-modal" aria-label="close"></button>
+      </header>
+      <section class="modal-card-body">
+        <form>
+          <div class="field">
+            <div class="control">
+              <input id="name" class="input" type="text" name="name" placeholder="Name">
+            </div>
+            <p class="help is-danger is-invisible">Name is required</p>
+          </div>
+          <div class="field">
+            <div class="control">
+              <input id="email" class="input" type="text" name="email" placeholder="Email">
+            </div>
+            <p class="help is-danger is-invisible">Email is required</p>
+          </div>
+          <div class="field">
+            <div class="control">
+              <input class="input" type="text" name="subject" id="name" placeholder="Subject">
+            </div>
+            <p class="help is-danger is-invisible">Subject is required</p>
+          </div>
+          <div class="field">
+            <div class="control">
+              <textarea id="body" class="textarea input" name="body" placeholder="Hi Joe, ..."></textarea>
+            </div>
+            <p class="help is-danger is-invisible">Body is required</p>
+          </div>
+          <p class="help is-danger server-error-message is-invisible"></p>
+        </form>
+      </section>
+      <footer class="modal-card-foot">
+        <button class="button is-success has-background-grey submit">
+          <span class="icon is-small">
+            <i class="fa fa-envelope"></i>
+          </span>
+         <span>Send</span>
+        </button>
+        <button class="button close-modal">Cancel</button>
+      </footer>
+    </div>
+  </div>
+  <div class="modal modal-thank-you">
+    <div class="modal-background"></div>
+    <div class="modal-card">
+      <section class="content modal-card-body">
+        <h2 style="text-align: center;">Message sent. Thank you!</h2>
+      </section>
+      </footer>
+    </div>
+  </div>
+
+<script>
+const emailButton = document.querySelector('.fa-envelope');
+const emailModal = document.querySelector('.modal-email');
+const closeModalButtons = document.querySelectorAll('.close-modal');
+const submitButton = document.querySelector('.submit');
+
+emailButton.addEventListener('click', (e) => {
+  e.preventDefault();
+  emailModal.classList.add('is-active');
+});
+
+closeModalButtons.forEach((button, index) => {
+  button.addEventListener('click', (e) => {
+    emailModal.classList.remove('is-active');
+    resetForm();
+  });
+});
+
+submitButton.addEventListener('click', () => {
+  if (formIsValid()) {
+    // send email.....
+  }
+});
+
+const formIsValid = () => {
+  document.querySelectorAll('.input').forEach((input, index) => {
+    if (input.value.trim() === '') {
+      input.classList.add('is-danger');
+      input.parentElement.nextSibling.nextSibling.classList.remove('is-invisible');
+    }
+  });
+};
+
+const resetForm = () => {
+  document.querySelectorAll('.input').forEach((input, index) => {
+    input.value = '';
+    input.classList.remove('is-danger');
+    input.parentElement.nextSibling.nextSibling.classList.add('is-invisible');
+  });
+};
+
+</script>
 </body>
 </html>
