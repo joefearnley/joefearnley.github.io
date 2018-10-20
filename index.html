@@ -58,7 +58,7 @@
           </div>
           <div class="field">
             <div class="control">
-              <input class="input" type="text" name="subject" id="name" placeholder="Subject">
+              <input id="subject" class="input" type="text" name="subject" placeholder="Subject">
             </div>
             <p class="help is-danger is-invisible">Subject is required</p>
           </div>
@@ -97,6 +97,21 @@ const emailButton = document.querySelector('.fa-envelope');
 const emailModal = document.querySelector('.modal-email');
 const closeModalButtons = document.querySelectorAll('.close-modal');
 const submitButton = document.querySelector('.submit');
+const serverErrorMessage = document.querySelector('.server-error-message');
+
+document.querySelectorAll('.input').forEach((input, index) => {
+  input.addEventListener('keyup', () =>{
+    input.classList.remove('is-danger');
+    input.parentElement.nextSibling.nextSibling.classList.add('is-invisible');
+  });
+
+  input.addEventListener('change', () =>{
+    if (input.value.trim() === '') {
+      input.classList.add('is-danger');
+      input.parentElement.nextSibling.nextSibling.classList.remove('is-invisible');
+    }
+  })
+});
 
 emailButton.addEventListener('click', (e) => {
   e.preventDefault();
@@ -111,18 +126,46 @@ closeModalButtons.forEach((button, index) => {
 });
 
 submitButton.addEventListener('click', () => {
+
   if (formIsValid()) {
-    // send email.....
+    const postData = {
+      name: document.querySelector('#name'),
+      from: document.querySelector('#email'),
+      subject: document.querySelector('#subject'),
+      messageBody: document.querySelector('#body')
+    };
+
+    console.log('fetching.....');
+    console.log(postData);
+
+    fetch('https://pleasesend-fmrquakhtr.now.sh', {
+      method: 'post',
+      body: JSON.stringify(postData)
+    }).then(response => {
+      return response.json();
+    }).then(data => {
+      console.log('showing thank you modal...');
+      emailModal.classList.remove('is-active');
+    }).catch(err => {
+      console.log(err);
+      serverErrorMessage.innerHTML = err.response.data;
+      serverErrorMessage.classList.remove('is-invisible');
+    });
   }
 });
 
 const formIsValid = () => {
+  let isValid = true;
+
   document.querySelectorAll('.input').forEach((input, index) => {
     if (input.value.trim() === '') {
       input.classList.add('is-danger');
       input.parentElement.nextSibling.nextSibling.classList.remove('is-invisible');
+      isValid = false;
     }
   });
+
+  return isValid;
 };
 
 const resetForm = () => {
@@ -131,6 +174,9 @@ const resetForm = () => {
     input.classList.remove('is-danger');
     input.parentElement.nextSibling.nextSibling.classList.add('is-invisible');
   });
+
+  serverErrorMessage.innerHTML = '';
+  serverErrorMessage.classList.add('is-invisible');
 };
 
 </script>
