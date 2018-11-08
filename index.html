@@ -93,13 +93,16 @@
   </div>
 
 <script>
-const emailButton = document.querySelector('.fa-envelope');
-const emailModal = document.querySelector('.modal-email');
-const closeModalButtons = document.querySelectorAll('.close-modal');
-const submitButton = document.querySelector('.submit');
-const serverErrorMessage = document.querySelector('.server-error-message');
+const q = s => document.querySelector(s);
+const qA = s => document.querySelectorAll(s)
 
-document.querySelectorAll('.input').forEach((input, index) => {
+const emailButton = q('.fa-envelope');
+const emailModal = q('.modal-email');
+const closeModalButtons = qA('.close-modal');
+const submitButton = q('.submit');
+const serverErrorMessage = q('.server-error-message');
+
+qA('.input').forEach((input, index) => {
   input.addEventListener('keyup', () =>{
     input.classList.remove('is-danger');
     input.parentElement.nextSibling.nextSibling.classList.add('is-invisible');
@@ -129,10 +132,10 @@ submitButton.addEventListener('click', () => {
 
   if (formIsValid()) {
     const postData = {
-      name: document.querySelector('#name'),
-      from: document.querySelector('#email'),
-      subject: document.querySelector('#subject'),
-      messageBody: document.querySelector('#body')
+      name: q('#name'),
+      from: q('#email'),
+      subject: q('#subject'),
+      messageBody: q('#body')
     };
 
     console.log('fetching.....');
@@ -157,7 +160,7 @@ submitButton.addEventListener('click', () => {
 const formIsValid = () => {
   let isValid = true;
 
-  document.querySelectorAll('.input').forEach((input, index) => {
+  qA('.input').forEach((input, index) => {
     if (input.value.trim() === '') {
       input.classList.add('is-danger');
       input.parentElement.nextSibling.nextSibling.classList.remove('is-invisible');
@@ -169,7 +172,7 @@ const formIsValid = () => {
 };
 
 const resetForm = () => {
-  document.querySelectorAll('.input').forEach((input, index) => {
+  qA('.input').forEach((input, index) => {
     input.value = '';
     input.classList.remove('is-danger');
     input.parentElement.nextSibling.nextSibling.classList.add('is-invisible');
